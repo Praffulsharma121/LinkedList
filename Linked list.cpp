@@ -1,6 +1,7 @@
 // Single linked list operation//
 #include<iostream>
 #include<stdlib.h>// for mallloc function//
+#include<math.h>
 
 struct node
 {
