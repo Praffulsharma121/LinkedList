@@ -12,6 +12,7 @@ struct node* root=NULL;// Default value is NULL in C for global declerations//
 
 void append()
 {
+	//this is a comment
 	struct node* temp;
 	temp=(struct node*)malloc(sizeof(struct node));
 	printf("Enter node data :");
