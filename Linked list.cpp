@@ -18,7 +18,7 @@ void append()
 	//this is a comment
 
 	struct node* temp;
-	temp=(struct node*)malloc(sizeof(struct node));
+	temp=(struct node*)malloc(sizeof(struct node));// temp node created
 	printf("Enter node data :");
 	scanf("%d",&temp->data);
 	temp->link =NULL; 
