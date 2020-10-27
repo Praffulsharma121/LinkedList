@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<assert.h>
+
+struct Node
+{
+	int data;
+	struct Node* next;
+};
+
+struct Node* head;
+
+void Insert(int x)
+{
+	struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
+
+	temp->data = x;
+	temp->next = NULL;
+
+	if(head!=NULL)
+		temp->next = head;
+	head = temp;
+}
+
+int GetNodeValue(int x, int v)
+{
+	struct Node* current = head;
+	int count = 0;
+
+	while(current!=NULL)
+	{
+		if(count == v)
+		{	return(current->data);
+			printf("%d\n", current->data);
+		}
+
+		count++;
+		current = current->next;
+	}
+	assert(0);
+}
+
+void Print()
+{
+	struct Node* temp = head;
+	printf("The Linked list is: \n");
+	while(temp!= NULL)
+	{
+		printf("%d \n", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
+int main()
+{
+	head = NULL;
+	int n, x, v;
+
+	printf("Enetr the linght of the Linked list: \n");
+	scanf("%d", &n);
+
+	for(int i=0;i<n;++i)
+	{
+		printf("Enetr the value of Elements: \n");
+		scanf("%d", &x);
+		Insert(x);
+		Print();
+	}
+
+	printf("Enter the position: \n");
+	scanf("%d", &v);
+	//GetNodeValue(x, v);
+	printf("The value at Index %d is: ", v);
+	printf("%d ", GetNodeValue(x, v));
+	
+
+	return 0;
+}
