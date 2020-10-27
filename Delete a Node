@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+
+struct Node* head;
+
+void Insert(int x)
+{
+    struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
+    temp->data = x;
+    temp->next = NULL;
+
+    if(head != NULL)
+        temp->next = head;
+    head = temp;
+}
+
+void Delete(int delete)
+{
+    struct Node* temp = head;
+    if(delete == 1)
+    {
+        head = temp->next;
+        free(temp);
+        return;
+    }
+    for(int i=0;i<delete-2;++i)
+        temp = temp->next;
+    {
+        struct Node* temp2 = temp->next;
+        temp->next = temp2->next;
+        free(temp2);
+    }
+}
+
+void Print()
+{
+    struct Node* temp = head;
+    printf("The Linked list is: \n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+int main()
+{
+    head = NULL;
+    int length, data, delete;
+
+    printf("Enter the length of the Linked list: \n");
+    scanf("%d", &length);
+
+    for(int i=0;i<length;++i)
+        {
+            printf("Enter the value: \n");
+            scanf("%d", &data);
+            Insert(data);
+            Print();
+        }
+        
+        printf("Which node you want to delete: \n");
+        scanf("%d", &delete);
+        Delete(delete);
+        Print();
+        
+        return 0;
+}        
